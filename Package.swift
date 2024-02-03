@@ -16,7 +16,7 @@ let package = Package(
         .target(
             name: "SwiftAnimeGAN",
             resources: [
-            .process("animeganHayao.mlmodelc")]
+            .process("animeganHayao.mlmodel")]
     ),
         .testTarget(
             name: "SwiftAnimeGANTests",
