@@ -51,7 +51,9 @@ public class SwiftAnimeGANv2 {
             let pixelBuffer:CVPixelBuffer = result.pixelBuffer
             let resultCIImage = CIImage(cvPixelBuffer: pixelBuffer)
             let resizedCIImage = resultCIImage.resize(as: CGSize(width: ciImage.extent.size.height,height: ciImage.extent.size.width))
-            return resizedCIImage
+            guard let cgImage = ciContext.createCGImage(resizedCIImage, from: resizedCIImage.extent) else { return nil }
+            let finalCIImage = CIImage(cgImage: cgImage)
+            return finalCIImage
         } catch {
             print("Vision error: \(error.localizedDescription)")
             return nil
