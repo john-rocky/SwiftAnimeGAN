@@ -23,7 +23,7 @@ public class SwiftAnimeGANv2 {
         }
     }
     
-    public func callAsFunction(uiImage: UIImage, orientation: CGImagePropertyOrientation = .right) -> UIImage? {
+    public func callAsFunction(uiImage: UIImage, orientation: CGImagePropertyOrientation = .up) -> UIImage? {
         guard let coreMLRequest = coreMLRequest else { return nil }
         guard let ciImage = CIImage(image: uiImage) else { return nil }
         let handler = VNImageRequestHandler(ciImage: ciImage,orientation: orientation, options: [:])
@@ -41,7 +41,7 @@ public class SwiftAnimeGANv2 {
         }
     }
     
-    public func callAsFunction(ciImage: CIImage, orientation: CGImagePropertyOrientation = .right) -> CIImage? {
+    public func callAsFunction(ciImage: CIImage, orientation: CGImagePropertyOrientation = .up) -> CIImage? {
         guard let coreMLRequest = coreMLRequest else { return nil }
         let handler = VNImageRequestHandler(ciImage: ciImage,orientation: orientation, options: [:])
         do {
@@ -57,7 +57,7 @@ public class SwiftAnimeGANv2 {
         }
     }
     
-    public func callAsFunction(cgImage: CGImage, orientation: CGImagePropertyOrientation = .right) -> CGImage? {
+    public func callAsFunction(cgImage: CGImage, orientation: CGImagePropertyOrientation = .up) -> CGImage? {
         guard let coreMLRequest = coreMLRequest else { return nil }
 
         let width = cgImage.width
